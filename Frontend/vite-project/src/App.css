@@ -1,0 +1,478 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap'); /* For the code font */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root { /* Ensure html, body, and root div take full height */
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #1a202c; /* Darker background for the entire app */
+  color: #e2e8f0; /* Light text color */
+  overflow: hidden; /* Prevent body scroll, layout manages internal scrolls */
+}
+
+/* Join Room Container */
+.join-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4c51bf 0%, #06b6d4 100%); /* Blue-cyan gradient */
+}
+
+.join-form {
+  background-color: #2d3748; /* Darker background for form */
+  width: 90%;
+  max-width: 450px;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: #e2e8f0;
+}
+
+.join-form img {
+  height: 80px; /* Adjust logo size */
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.join-form h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #a78bfa; /* Purple accent */
+  font-weight: 700;
+}
+
+.join-form input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #4a5568; /* Darker border */
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background-color: #28303d; /* Input background */
+  color: #e2e8f0;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.join-form input::placeholder {
+  color: #a0aec0;
+}
+
+.join-form input:focus {
+  border-color: #667eea; /* Blue accent on focus */
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.create-room-text {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #cbd5e0;
+}
+
+.create-room-text a {
+  color: #63b3ed; /* Light blue link */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.create-room-text a:hover {
+  text-decoration: underline;
+  color: #4299e1;
+}
+
+.join-form button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #667eea; /* Blue button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.join-form button:hover {
+  background-color: #5a67d8;
+  transform: translateY(-2px);
+}
+
+/* Editor Page Layout */
+.editor-page {
+  display: flex;
+  height: 100vh; /* Make the editor page take full viewport height */
+  width: 100vw; /* Make the editor page take full viewport width */
+  overflow: hidden; /* Crucial: Prevents overall page scroll, children manage their own scrolls */
+}
+
+/* Sidebar (Left Panel) */
+.sidebar {
+  width: 280px; /* Fixed width for sidebar */
+  background-color: #2d3748; /* Darker background */
+  padding: 1.5rem 1rem;
+  border-right: 1px solid #4a5568;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+  overflow-y: auto; /* Enable scrolling for content within sidebar if it overflows */
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+  height: 100%; /* Explicitly make sidebar take full height of its parent (.editor-page) */
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-logo {
+  height: 60px;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.room-id-display {
+  font-size: 1.1rem;
+  color: #a0aec0;
+  margin-bottom: 0.8rem;
+  word-wrap: break-word; /* Ensure long IDs wrap */
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: white;
+  margin-bottom: 0.75rem; /* Spacing between buttons */
+}
+
+.btn-copy {
+  background-color: #4299e1; /* Blue for copy */
+}
+
+.btn-copy:hover {
+  background-color: #3182ce;
+  transform: translateY(-1px);
+}
+
+/* Users Panel */
+.users-panel {
+  flex-grow: 1; /* Allow users panel to take available space */
+  margin-bottom: 2rem;
+}
+
+.users-panel h3 {
+  font-size: 1.2rem;
+  color: #cbd5e0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #4a5568;
+  padding-bottom: 0.5rem;
+}
+
+.users-list {
+  list-style: none;
+  padding: 0;
+  max-height: 250px; /* Limit height for user list */
+  overflow-y: auto; /* Scroll if many users */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #4a5568 #2d3748; /* Firefox */
+}
+
+.users-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.users-list::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+.users-list::-webkit-scrollbar-thumb {
+  background-color: #4a5568;
+  border-radius: 10px;
+  border: 2px solid #2d3748;
+}
+
+.users-list li {
+  padding: 0.6rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #e2e8f0;
+  border-bottom: 1px dashed #4a5568;
+}
+
+.users-list li:last-child {
+  border-bottom: none;
+}
+
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #a78bfa; /* Purple avatar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.typing-indicator {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #a0aec0;
+  font-style: italic;
+  min-height: 20px; /* Reserve space to prevent layout shift */
+}
+
+/* Controls Panel */
+.controls-panel {
+  padding-top: 1.5rem;
+  border-top: 1px solid #4a5568;
+  display: flex;
+  flex-direction: column;
+}
+
+.language-selector {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #28303d;
+  color: #e2e8f0;
+  outline: none;
+  appearance: none; /* Remove default select arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23a0aec0' d='M9.293 12.95l-4-4a1 1 0 111.414-1.414L10 10.086l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%;
+  background-size: 0.8em auto;
+}
+
+.language-selector:focus {
+  border-color: #63b3ed;
+  box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.3);
+}
+
+.btn-run {
+  background-color: #48bb78; /* Green for run */
+  margin-bottom: 1rem;
+}
+
+.btn-run:hover {
+  background-color: #38a169;
+  transform: translateY(-1px);
+}
+
+.btn-leave {
+  background-color: #e53e3e; /* Red for leave */
+}
+
+.btn-leave:hover {
+  background-color: #c53030;
+  transform: translateY(-1px);
+}
+
+/* Editor and Output Area (Right Panel) */
+.editor-and-output {
+  flex-grow: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  background-color: #1e2531; /* Monaco editor background color */
+  overflow: hidden; /* Crucial: Editor and output manage their own scrolls */
+  height: 100%; /* Explicitly make right panel take full height of its parent (.editor-page) */
+}
+
+/* Monaco Editor Container */
+.monaco-editor {
+  /* Monaco editor takes its own height from its parent, defined in App.jsx */
+  width: 100%;
+}
+
+/* Output Area */
+.output-area {
+  padding: 1rem;
+  background-color: #2d3748; /* Darker background for output */
+  border-top: 1px solid #4a5568;
+  height: 200px; /* Fixed height for output console */
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Prevent output from shrinking */
+}
+
+.output-area h3 {
+  font-size: 1.2rem;
+  color: #a0aec0;
+  margin-bottom: 0.8rem;
+}
+
+.output-console {
+  width: 100%;
+  flex-grow: 1; /* Take up available height in its parent */
+  background-color: #1a202c; /* Console background */
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  padding: 0.7rem;
+  font-family: 'Fira Code', monospace; /* Monospaced font */
+  font-size: 0.95rem;
+  color: #cbd5e0;
+  resize: none; /* Disable manual resizing */
+  outline: none;
+  white-space: pre-wrap; /* Preserve whitespace and wrap text */
+  word-break: break-word; /* Break long words */
+  overflow-y: auto; /* Scroll if content overflows */
+  scrollbar-width: thin;
+  scrollbar-color: #4a5568 #1a202c;
+}
+
+.output-console::-webkit-scrollbar {
+  width: 8px;
+}
+
+.output-console::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+
+.output-console::-webkit-scrollbar-thumb {
+  background-color: #4a5568;
+  border-radius: 10px;
+  border: 2px solid #1a202c;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .editor-page {
+    flex-direction: column; /* Stack sidebar and editor vertically */
+    height: auto; /* Allow content to dictate height, enable body scroll */
+    overflow-y: auto; /* Allow page to scroll when stacked vertically */
+  }
+
+  .sidebar {
+    width: 100%; /* Full width for sidebar */
+    height: auto; /* Auto height based on content */
+    border-right: none;
+    border-bottom: 1px solid #4a5568;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding-bottom: 1rem;
+  }
+
+  .sidebar-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-logo {
+    height: 40px;
+    margin-bottom: 0;
+  }
+
+  .room-id-display {
+    margin-bottom: 0;
+    font-size: 1rem;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .btn-copy {
+    margin-bottom: 0;
+  }
+
+  .users-panel {
+    margin-bottom: 1rem;
+  }
+
+  .users-list {
+    max-height: 150px; /* Shorter user list on small screens */
+  }
+
+  .controls-panel {
+    flex-direction: row; /* Arrange controls horizontally */
+    flex-wrap: wrap; /* Allow controls to wrap */
+    justify-content: center;
+    gap: 10px;
+    border-top: none; /* Remove top border as it's now internal */
+    padding-top: 0;
+  }
+
+  .language-selector,
+  .btn-run,
+  .btn-leave {
+    width: auto; /* Auto width for buttons */
+    flex-grow: 1; /* Allow them to grow */
+    margin-bottom: 0; /* Remove vertical margin */
+  }
+
+  .editor-and-output {
+    height: 70vh; /* Give editor and output a fixed height on mobile */
+    min-height: 400px; /* Ensure minimum height */
+    overflow-y: hidden; /* Manage internal scroll, but don't scroll this whole container */
+  }
+
+  /* Adjust Monaco Editor height within its flex parent on mobile */
+  .editor-and-output .monaco-editor {
+    height: calc(100% - 150px - 20px) !important; /* Total height - output height - run button height */
+    /* !important might be needed to override inline style from Monaco */
+  }
+
+
+  .output-area {
+    height: 150px; /* Shorter output on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .join-form {
+    padding: 1.5rem;
+  }
+  .join-form h1 {
+    font-size: 1.7rem;
+  }
+  .join-form input {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+  .join-form button {
+    font-size: 1.1rem;
+    padding: 0.9rem 1rem;
+  }
+  .sidebar {
+    padding: 1rem 0.7rem;
+  }
+  .users-list li {
+    font-size: 0.9rem;
+  }
+  .user-avatar {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+}
