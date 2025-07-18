@@ -26,12 +26,12 @@ CodeCollab is a real-time collaborative code editor built with **MERN Stack**, *
 ---
 
 ## 📸 Screenshots
- Landing Page [ Landing Page](https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/HomePage.png)
- Room Join UI [Room Join UI] (https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/CreateNewRoom.png)
- Code Editor View [Code Editor View] (https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/CodeEditorview.png)
- Multiple Language Support [ Multiple Language Support ] (https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/MultipleLanguageSupport.png)
- Code Execution with Output [Code Execution with Output](https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/CodeExectution.png)
- User left Room [ User left Room ](https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/UserLeft.png)
+ Landing Page ![ Landing Page](https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/HomePage.png)
+ Room Join UI ![Room Join UI] (https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/CreateNewRoom.png)
+ Code Editor View ![Code Editor View] (https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/CodeEditorview.png)
+ Multiple Language Support ![ Multiple Language Support ] (https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/MultipleLanguageSupport.png)
+ Code Execution with Output ![Code Execution with Output](https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/CodeExectution.png)
+ User left Room ![ User left Room ](https://github.com/Darshangnayak/CodeCollab/blob/e3a4bb1efda5d35d1d772ad913b9694b1b27d176/UserLeft.png)
 
 
 ----
