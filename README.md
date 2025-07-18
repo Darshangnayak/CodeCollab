@@ -45,7 +45,7 @@ CodeCollab is a real-time collaborative code editor built with **MERN Stack**, *
 
 🎥 Demo Video
 
-[![Watch the demo](https://github.com/Darshangnayak/Ace-Interview/blob/004b721e1fed715eec7b4f7967ab7e9ee8f7ec8c/project%20video%20(1)%20(1).mp4)
+[![Watch the demo](https://github.com/Darshangnayak/CodeCollab/blob/99fe2c09d6a43ea9af78d59c9c3a033968bacd2f/ProjectDemo.mp4)
 
 
 ## 🔧 Local Setup
